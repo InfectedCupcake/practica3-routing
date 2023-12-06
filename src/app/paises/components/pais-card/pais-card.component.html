@@ -1,0 +1,44 @@
+<div *ngIf="country; else NoCoutry">
+  <!-- Aqui va la info del pais -->
+  <div class="card border-primary p-1 col-12 col-sm-6 col-md-6 col-lg-4">
+    <img
+      class="card-img-top"
+      src="{{ country.flags.svg }}"
+      alt="{{ country.flags.alt }}"
+    />
+    <div class="card p-1 mt-2 border-secondary">
+      <h3 class="text-center">{{ country.name.common }}</h3>
+      <hr />
+      <div class="d-flex justify-content-between">
+        <div><strong>Official:</strong></div>
+        <div class="text-end">{{ country.name.official }}</div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div><strong>Native:</strong></div>
+        <div class="text-end">{{ country.name.official }}</div>
+      </div>
+    </div>
+    <div class="card p-1 mt-2 border-secondary">
+      <div class="d-flex justify-content-between">
+        <div><strong>Capital:</strong></div>
+        <div class="text-end">{{ country.capital[0] }}</div>
+      </div>
+    </div>
+    <div class="card p-1 mt-2 border-secondary">
+      <div class="d-flex justify-content-between">
+        <div><strong>Population:</strong></div>
+        <div class="text-end">{{ country.population }}</div>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <a class="btn btn-primary" routerLink="ver-pais/{{ country.cca3 }}"
+        >Ver más...</a
+      >
+    </div>
+  </div>
+</div>
+<ng-template #NoCoutry>
+  <div class="btn-danger">
+    <h4 class="text-center text-white">No se recibió un país</h4>
+  </div>
+</ng-template>

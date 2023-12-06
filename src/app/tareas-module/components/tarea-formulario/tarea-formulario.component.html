@@ -1,0 +1,53 @@
+<div class="border-secundary">
+  <h3 class="text-center">Agregar nueva tarea</h3>
+  <hr />
+  <form
+    [formGroup]="tareaFormuario"
+    class="col-6"
+    (submit)="OnFormSubmit()"
+    autocomplete="off"
+  >
+    <div>
+      <div class="form-floating mb-2">
+        <!-- <input type="text" id="titulo" class="form-control" placeholder="" [(value)]="newTarea.titulo" /> -->
+        <input
+          formControlName="titulo"
+          type="text"
+          #tituloInput
+          id="titulo"
+          class="form-control"
+          required
+          placeholder=""
+        />
+        <label for="titulo">*Titulo de la tarea</label>
+      </div>
+      <span class="text-danger" *ngIf="isFieldValid('titulo')">
+        Se requiere el titulo y debe tener al menos 5 caracteres
+      </span>
+    </div>
+
+    <div>
+      <div class="form-floating mb-2">
+        <textarea
+          formControlName="descripcion"
+          name="descripcion"
+          #descripcionInput
+          id="descripcion"
+          cols="30"
+          rows="5"
+          class="form-control"
+          required
+          placeholder=""
+        ></textarea>
+        <label for="descripcion">*Descripción de la tarea</label>
+      </div>
+      <span class="text-danger" *ngIf="isFieldValid('descripcion')">
+        Se requiere el titulo y debe tener al menos 5 caracteres
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary mt-2">Agregar</button>
+
+    <!-- {{newTarea | json}} -->
+  </form>
+</div>

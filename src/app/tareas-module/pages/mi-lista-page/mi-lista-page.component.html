@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <tareas-module-tarea-card
+    class=""
+    *ngFor="let tarea of tareas; let i = index"
+    [tarea]="tarea"
+    [tareaIndex]="i"
+    (onStatusChange)="catchOnStatusChange()"
+  />
+</div>
